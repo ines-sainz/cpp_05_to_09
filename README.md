@@ -34,8 +34,6 @@ The `Data` structure must contain some data members to validate correct serializ
 It identifies the actual derived type of an object via a pointer or reference without using typeinfo.
 The goal is to practice runtime type identification manually and test that the functions correctly print the real type.
 
-* **Exercise 03** (): 
-
 ---
 
 ## Module 07
