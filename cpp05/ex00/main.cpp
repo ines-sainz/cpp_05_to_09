@@ -12,6 +12,14 @@
 
 #include "Bureaucrat.hpp"
 
+/**
+ * @brief Main function to test Bureaucrat class grade limits and exceptions.
+ * 
+ * Tests creating Bureaucrats with invalid and valid grades, then increments 
+ * and decrements grades while catching and printing exceptions thrown.
+ * 
+ * @return int Always returns 0.
+ */
 int main()
 {
 	try
