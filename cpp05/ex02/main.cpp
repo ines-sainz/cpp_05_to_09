@@ -16,6 +16,17 @@
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 
+/**
+ * @brief Main function demonstrating usage of Bureaucrat and Forms.
+ * 
+ * Creates Bureaucrats and dynamically allocates various forms:
+ * PresidentialPardonForm, RobotomyRequestForm, ShrubberyCreationForm.
+ * 
+ * Each Bureaucrat attempts to execute, sign, re-sign, and execute the 
+ * forms, with exceptions caught and error messages displayed.
+ * 
+ * @return int Always returns 0.
+ */
 int main()
 {
 	try
