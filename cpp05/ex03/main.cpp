@@ -17,6 +17,15 @@
 #include "ShrubberyCreationForm.hpp"
 #include "Intern.hpp"
 
+/**
+ * @brief Main function demonstrating Intern form creation and execution.
+ * 
+ * Creates a Bureaucrat with the highest grade, and an Intern who creates a
+ * PresidentialPardonForm targeted at "random". The Bureaucrat signs and
+ * executes the form. The form is deleted at the end to prevent memory leak.
+ * 
+ * @return int Always returns 0.
+ */
 int main()
 {
 	Bureaucrat	one("one", 1);
