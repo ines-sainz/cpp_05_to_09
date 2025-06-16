@@ -13,6 +13,14 @@
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 
+/**
+ * @brief Entry point of the program testing Form and Bureaucrat exceptions.
+ * 
+ * Tries to create Forms with invalid grades to catch exceptions.
+ * Then creates Bureaucrats and Forms to test signing behavior.
+ * 
+ * @return int Always returns 0 on completion.
+ */
 int main()
 {
 	try
