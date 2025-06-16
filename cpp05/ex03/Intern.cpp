@@ -15,6 +15,17 @@
 #include "ShrubberyCreationForm.hpp"
 #include "Intern.hpp"
 
+/**
+ * @brief Creates a form of a given type and target.
+ * 
+ * Searches for the form name in a predefined list and dynamically allocates
+ * the appropriate form type (PresidentialPardonForm, RobotomyRequestForm,
+ * or ShrubberyCreationForm). If no match is found, prints an error message.
+ * 
+ * @param formName Name of the form to create.
+ * @param formTarget Target of the created form.
+ * @return AForm* Pointer to the newly created form, or NULL if invalid.
+ */
 AForm*	Intern::makeForm( std::string formName, std::string formTarget )
 {
 	std::string options[3] = {"PresidentialPardonForm", "RobotomyRequestForm", "ShrubberyCreationForm"};
@@ -51,23 +62,48 @@ AForm*	Intern::makeForm( std::string formName, std::string formTarget )
 	return (form);
 }
 
+/**
+ * @brief Assignment operator for Intern.
+ * 
+ * Prints a message and returns a reference to the current object.
+ * 
+ * @param before Reference to the Intern being copied.
+ * @return Intern& Reference to the current Intern object.
+ */
 Intern& Intern::operator=( const Intern& before )
 {
 	std::cout << "Copy Intern Assigment operator called" << std::endl;
 	return (*this);
 }
 
+/**
+ * @brief Copy constructor for Intern.
+ * 
+ * Calls the assignment operator to copy data from the given Intern.
+ * 
+ * @param before Reference to the Intern being copied.
+ */
 Intern::Intern( const Intern& before )
 {
 	std::cout << "Copy Interrn Constructor called" << std::endl;
 	*this = before;
 }
 
+/**
+ * @brief Default constructor for Intern.
+ * 
+ * Prints a message upon creation.
+ */
 Intern::Intern( void )
 {
 	std::cout << "Default Intern Constructor called" << std::endl;
 }
 
+/**
+ * @brief Destructor for Intern.
+ * 
+ * Prints a message upon destruction.
+ */
 Intern::~Intern()
 {
 	std::cout << "Default Intern Destructor called" << std::endl;
