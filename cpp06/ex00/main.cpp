@@ -12,6 +12,16 @@
 
 #include "ScalarConverter.hpp"
 
+/**
+ * @brief Entry point of the program.
+ *
+ * Expects a single argument, which it passes to ScalarConverter for type
+ * conversion. Displays an error if the number of arguments is not exactly one.
+ *
+ * @param argc Argument count.
+ * @param argv Argument values.
+ * @return 0 on success, 1 on error.
+ */
 int main(int argc, char **argv)
 {
 	if (argc != 2)
