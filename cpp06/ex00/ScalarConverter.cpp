@@ -12,6 +12,12 @@
 
 #include "ScalarConverter.hpp"
 
+/**
+ * @brief Handle special float/double string cases (nan, inf).
+ *
+ * @param toConvert The string to be interpreted.
+ * @param i Mode selector: 1 = float style, 0 = double style.
+ */
 void	handleWeird( std::string toConvert, int i )
 {
 	std::cout << "char: impossible\nint: impossible" << std::endl;
@@ -30,6 +36,12 @@ void	handleWeird( std::string toConvert, int i )
 	}
 }
 
+/**
+ * @brief Check if the string represents a special float/double value.
+ *
+ * @param toConvert The input string.
+ * @return 1 if it is a special value, 0 otherwise.
+ */
 int isWeird( std::string toConvert )
 {
  	if (toConvert == "nanf" || toConvert == "+inff" || toConvert == "-inff")
@@ -43,8 +55,17 @@ int isWeird( std::string toConvert )
 		return (1);
 	}
 	return (0);
-};
+}
 
+/**
+ * @brief Check if the string represents a float value.
+ *
+ * Converts the string to float, then prints its char, int, float and double
+ * representations.
+ *
+ * @param toConvert The input string.
+ * @return 1 if valid float, 0 otherwise.
+ */
 int isFloat( std::string toConvert )
 {
 	char	*end;
@@ -76,6 +97,15 @@ int isFloat( std::string toConvert )
 	return (1);
 }
 
+/**
+ * @brief Check if the string represents a double value.
+ *
+ * Converts the string to double, then prints its char, int, float and double
+ * representations.
+ *
+ * @param toConvert The input string.
+ * @return 1 if valid double, 0 otherwise.
+ */
 int isDouble( std::string toConvert )
 {
 	char	*end;
@@ -105,6 +135,15 @@ int isDouble( std::string toConvert )
 	return (1);
 }
 
+/**
+ * @brief Check if the string represents an integer value.
+ *
+ * Converts the string to integer, then prints its char, int, float and double
+ * representations.
+ *
+ * @param toConvert The input string.
+ * @return 1 if valid int, 0 otherwise.
+ */
 int	isInt( std::string toConvert )
 {
 	char	*end;
@@ -128,6 +167,13 @@ int	isInt( std::string toConvert )
 	return (1);
 }
 
+/**
+ * @brief Handle single character conversion.
+ *
+ * Interprets the character as char, int, float, and double, then prints each.
+ *
+ * @param toConvert The single-character string.
+ */
 void	isChar( std::string toConvert )
 {
 	char	charToConvert = toConvert[0];
@@ -139,6 +185,13 @@ void	isChar( std::string toConvert )
 	std::cout << "double: " << doublechar << ".0" << std::endl;
 }
 
+/**
+ * @brief Convert string input to all scalar types (char, int, float, double).
+ *
+ * Dispatches to the appropriate converter based on the string contents.
+ *
+ * @param toConvert The string to convert.
+ */
 void ScalarConverter::convert( std::string toConvert )
 {
 	if (toConvert.length() == 1 && isdigit(toConvert[0]) == 0)
@@ -154,6 +207,12 @@ void ScalarConverter::convert( std::string toConvert )
 		
 }
 
+/**
+ * @brief Assignment operator for ScalarConverter.
+ *
+ * @param before The object to assign from.
+ * @return Reference to this object.
+ */
 ScalarConverter& ScalarConverter::operator=( const ScalarConverter& before )
 {
 	std::cout << "Copy ScalarConverter Assigment Operator called" << std::endl;
@@ -161,12 +220,20 @@ ScalarConverter& ScalarConverter::operator=( const ScalarConverter& before )
 	return (*this);
 }
 
+/**
+ * @brief Copy constructor for ScalarConverter.
+ *
+ * @param before The object to copy from.
+ */
 ScalarConverter::ScalarConverter( const ScalarConverter& before )
 {
 	std::cout << "Copy ScalarConverter Contructor called" << std::endl;
 	*this = before;
 }
 
+/**
+ * @brief Destructor for ScalarConverter.
+ */
 ScalarConverter::~ScalarConverter()
 {
 	std::cout << "Default ScalarConverter Destructor called" << std::endl;
