@@ -12,6 +12,14 @@
 
 #include "whatever.hpp"
 
+/**
+ * @brief Returns the minimum of two values.
+ * 
+ * @tparam T Type of the values to compare.
+ * @param a First value.
+ * @param b Second value.
+ * @return T The smaller of the two values.
+ */
 template <typename T>
 T	min(T a, T b)
 {
@@ -20,6 +28,14 @@ T	min(T a, T b)
 	return (b);
 }
 
+/**
+ * @brief Returns the maximum of two values.
+ * 
+ * @tparam T Type of the values to compare.
+ * @param a First value.
+ * @param b Second value.
+ * @return T The larger of the two values.
+ */
 template <typename T>
 T	max(T a, T b)
 {
@@ -28,6 +44,13 @@ T	max(T a, T b)
 	return (b);
 }
 
+/**
+ * @brief Swaps the values of two variables.
+ * 
+ * @tparam T Type of the values to swap.
+ * @param a Reference to the first variable.
+ * @param b Reference to the second variable.
+ */
 template <typename T>
 void	swap(T& a, T& b)
 {
@@ -36,6 +59,14 @@ void	swap(T& a, T& b)
 	b = c;
 }
 
+/**
+ * @brief Main function to demonstrate the use of swap, min, and max templates.
+ * 
+ * Tests the template functions with integers and strings, printing the
+ * results to standard output.
+ * 
+ * @return int Exit status code.
+ */
 int main( void )
 {
 	int a = 2;
