@@ -12,6 +12,17 @@
 
 #include "RPN.hpp"
 
+/**
+ * @brief Evaluates a Reverse Polish Notation (RPN) expression from a string.
+ * 
+ * Parses the input string character by character, pushing numbers onto a stack
+ * and applying operations (+, -, *, /) to the top two numbers when encountered.
+ * Detects invalid input such as multiple digits without separator or insufficient
+ * operands for an operator. Prints the final result or "Error" for invalid input.
+ * 
+ * @param argv Input string containing the RPN expression.
+ * @return int Returns 0 on successful evaluation, 1 on error.
+ */
 int	reverse_polish_notation(char *argv)
 {
 	std::stack<int>	num_stack;
