@@ -12,11 +12,21 @@
 
 #include "A.hpp"
 
+/**
+ * @brief Default constructor for class A.
+ *
+ * Prints a message when an instance of A is created.
+ */
 A::A( void )
 {
 	std::cout << "Default A Constructor called" << std::endl;
 }
 
+/**
+ * @brief Default destructor for class A.
+ *
+ * Prints a message when an instance of A is destroyed.
+ */
 A::~A()
 {
 	std::cout << "Default A Destructor called" << std::endl;
