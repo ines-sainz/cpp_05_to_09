@@ -14,6 +14,20 @@
 #include <Array.hpp>
 
 #define MAX_VAL 750
+
+/**
+ * @brief Main function demonstrating the use of the Array template class.
+ * 
+ * Creates an Array of integers and a mirror array, fills them with random
+ * values, then tests copy construction and assignment within a scope.
+ * Verifies that copied values match the original, and tests out-of-bounds
+ * access with exception handling. Finally, reassigns random values and cleans
+ * up allocated memory.
+ * 
+ * @param argc Argument count (unused).
+ * @param argv Argument vector (unused).
+ * @return int Returns 0 on success, or 1 if a value mismatch is detected.
+ */
 int main(int, char**)
 {
     Array<int> numbers(MAX_VAL);
