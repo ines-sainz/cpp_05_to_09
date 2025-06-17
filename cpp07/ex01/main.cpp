@@ -12,6 +12,17 @@
 
 #include "iter.hpp"
 
+/**
+ * @brief Applies a function to each element of an array.
+ * 
+ * This function modifies the array in-place by applying the given function
+ * to each element.
+ * 
+ * @tparam T Type of the elements in the array.
+ * @param array Pointer to the array.
+ * @param lenght Number of elements in the array.
+ * @param function Function pointer to apply to each element.
+ */
 template <typename T>
 void	iter(T *array, int lenght, T (*function)(T))
 {
@@ -22,11 +33,27 @@ void	iter(T *array, int lenght, T (*function)(T))
 	
 }
 
+/**
+ * @brief Converts a lowercase character to uppercase.
+ * 
+ * Assumes input is a lowercase ASCII letter.
+ * 
+ * @param c Character to convert.
+ * @return char Uppercase equivalent of the input character.
+ */
 char up(char c)
 {
 	return (c - 32);
 }
 
+/**
+ * @brief Main function to demonstrate iter template function.
+ * 
+ * Applies character transformation to integer array and C-style string using
+ * the iter template and prints the results before and after.
+ * 
+ * @return int Exit status code.
+ */
 int main()
 {
 	int	ii[] = {'a', 'd', 'g', 'c'};
