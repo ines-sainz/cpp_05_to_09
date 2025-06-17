@@ -14,6 +14,15 @@
 #include "B.hpp"
 #include "C.hpp"
 
+/**
+ * @brief Main function to test dynamic casting and type identification.
+ *
+ * Creates a randomly generated derived object (A, B, or C) using Base::generate.
+ * Then identifies the type using both pointer and reference versions of 
+ * Base::identify, and finally deletes the allocated object.
+ *
+ * @return int Exit status code.
+ */
 int main()
 {
 		Base	*base = NULL;
