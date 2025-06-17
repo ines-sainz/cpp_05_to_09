@@ -12,6 +12,14 @@
 
 #include "Array.hpp"
 
+/**
+ * @brief Accesses the element at the given index with bounds checking.
+ * 
+ * @tparam T Type of elements in the array.
+ * @param index Index to access.
+ * @return T& Reference to the element at the specified index.
+ * @throw indexOutOfBounds If the index is out of valid range.
+ */
 template <typename T>
 T& Array<T>::operator[](int index)
 {
@@ -20,6 +28,12 @@ T& Array<T>::operator[](int index)
 	return (this->array[index]);
 }
 
+/**
+ * @brief Returns the number of elements in the array.
+ * 
+ * @tparam T Type of elements in the array.
+ * @return int Number of elements.
+ */
 template <typename T>
 int	Array<T>::size() const
 {
@@ -32,6 +46,15 @@ int	Array<T>::size() const
 	return (len);
 }
 
+/**
+ * @brief Assignment operator overload.
+ * 
+ * Copies the contents of another array into this one.
+ * 
+ * @tparam T Type of elements in the array.
+ * @param before Reference to the array to copy from.
+ * @return Array<T>& Reference to the assigned array.
+ */
 template <typename T>
 Array<T>& Array<T>::operator=( const Array<T> &before )
 {
@@ -52,12 +75,28 @@ Array<T>& Array<T>::operator=( const Array<T> &before )
 	return (*this);
 }
 
+/**
+ * @brief Copy constructor.
+ * 
+ * Creates a copy of another Array object.
+ * 
+ * @tparam T Type of elements in the array.
+ * @param before The Array object to copy.
+ */
 template <typename T>
 Array<T>::Array( const Array& before )
 {
 	*this = before;
 }
 
+/**
+ * @brief Parameterized constructor.
+ * 
+ * Allocates memory for an array of size n.
+ * 
+ * @tparam T Type of elements in the array.
+ * @param n Number of elements to allocate.
+ */
 template <typename T>
 Array<T>::Array(unsigned int n)
 {
@@ -65,6 +104,13 @@ Array<T>::Array(unsigned int n)
 	this->len = n;
 }
 
+/**
+ * @brief Default constructor.
+ * 
+ * Initializes an empty array.
+ * 
+ * @tparam T Type of elements in the array.
+ */
 template <typename T>
 Array<T>::Array()
 {
@@ -72,6 +118,13 @@ Array<T>::Array()
 	len = 0;
 }
 
+/**
+ * @brief Destructor.
+ * 
+ * Frees allocated memory for the array.
+ * 
+ * @tparam T Type of elements in the array.
+ */
 template <typename T>
 Array<T>::~Array()
 {
