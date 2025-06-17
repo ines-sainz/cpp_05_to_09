@@ -12,6 +12,17 @@
 
 #include "PmergeMe.hpp"
 
+/**
+ * @brief Parses command line arguments into a vector of unique integers.
+ *
+ * Checks that each argument is a positive integer string with up to 10
+ * digits, no duplicates allowed. Returns 1 on invalid input or duplicates,
+ * 0 on success.
+ *
+ * @param argv Array of argument strings.
+ * @param vector Pointer to vector<int> to fill with parsed numbers.
+ * @return int 0 if success, 1 on error.
+ */
 int	parse_vector(char **argv, std::vector<int> *vector)
 {
 	std::vector<int>::iterator	it = vector->begin();
@@ -46,6 +57,12 @@ int	parse_vector(char **argv, std::vector<int> *vector)
 	return (0);
 }
 
+/**
+ * @brief Checks if a vector is sorted in ascending order.
+ *
+ * @param vector Pointer to vector<int> to check.
+ * @return int Returns 0 if ordered ascending, 1 if not.
+ */
 int	ordered_vector(std::vector<int> *vector)
 {
 	std::vector<int>::iterator	it = vector->begin();
@@ -62,6 +79,18 @@ int	ordered_vector(std::vector<int> *vector)
 	return (0);
 }
 
+/**
+ * @brief Splits input vector into two vectors of pairs, sorts the smaller
+ *        pair vector in ascending order using bubble sort.
+ *
+ * Even indices go to ordered_small_pair_vector; odd indices to big_pair_vector.
+ *
+ * @param vector Pointer to input vector<int>.
+ * @param ordered_small_pair_vector Pointer to vector<int> to fill with smaller
+ *        elements of pairs.
+ * @param big_pair_vector Pointer to vector<int> to fill with bigger elements
+ *        of pairs.
+ */
 void	second_vector_step(std::vector<int> *vector, std::vector<int> *ordered_small_pair_vector, std::vector<int> *big_pair_vector)
 {
 	std::vector<int>::iterator	it = vector->begin();
@@ -102,6 +131,14 @@ void	second_vector_step(std::vector<int> *vector, std::vector<int> *ordered_smal
 	}
 }
 
+/**
+ * @brief Sorts each pair in the input vector so that the smaller element is
+ *        first and the larger second.
+ *
+ * Iterates pairs by stepping through the vector by 2.
+ *
+ * @param vector Pointer to vector<int> to sort pairs in place.
+ */
 void	first_vector_step(std::vector<int> *vector)
 {
 	std::vector<int>::iterator	it1 = vector->begin();
@@ -127,6 +164,19 @@ void	first_vector_step(std::vector<int> *vector)
 	}
 }
 
+/**
+ * @brief Parses command line arguments into a vector, sorts pairs, splits
+ *        and merges pairs into a sorted vector.
+ *
+ * Inserts elements from big pairs into ordered_small_pair_vector maintaining
+ * order.
+ *
+ * @param argv Argument strings.
+ * @param vector Pointer to vector<int> to fill.
+ * @param ordered_small_pair_vector Pointer to vector<int> to fill with final
+ *        sorted result.
+ * @return int Returns 0 on success, 1 on error.
+ */
 int	order_with_vector(char **argv, std::vector<int> *vector, std::vector<int> *ordered_small_pair_vector)
 {
 	if (parse_vector(argv, vector) == 1)
@@ -159,6 +209,15 @@ int	order_with_vector(char **argv, std::vector<int> *vector, std::vector<int> *o
 
 
 
+/**
+ * @brief Parses command line arguments into a list of unique integers.
+ *
+ * Checks each argument is a digit string <= 10 chars and no duplicates.
+ *
+ * @param argv Argument strings.
+ * @param list Pointer to list<int> to fill.
+ * @return int Returns 0 on success, 1 on error.
+ */
 int	parse_list(char **argv, std::list<int> *list)
 {
 	std::list<int>::iterator	it = list->begin();
@@ -193,6 +252,12 @@ int	parse_list(char **argv, std::list<int> *list)
 	return (0);
 }
 
+/**
+ * @brief Checks if a list is sorted in ascending order.
+ *
+ * @param list Pointer to list<int> to check.
+ * @return int Returns 0 if ordered ascending, 1 if not.
+ */
 int	ordered_list(std::list<int> *list)
 {
 	std::list<int>::iterator	it = list->begin();
@@ -209,6 +274,17 @@ int	ordered_list(std::list<int> *list)
 	return (0);
 }
 
+/**
+ * @brief Splits list into two lists of pairs and sorts the smaller pair list.
+ *
+ * Even-indexed elements go to ordered_small_pair_list; odd-indexed to
+ * big_pair_list. Sorts ordered_small_pair_list ascending with bubble sort.
+ *
+ * @param list Pointer to input list<int>.
+ * @param ordered_small_pair_list Pointer to list<int> to fill with smaller pair
+ *        elements.
+ * @param big_pair_list Pointer to list<int> to fill with bigger pair elements.
+ */
 void	second_list_step(std::list<int> *list, std::list<int> *ordered_small_pair_list, std::list<int> *big_pair_list)
 {
 	std::list<int>::iterator	it = list->begin();
@@ -249,6 +325,13 @@ void	second_list_step(std::list<int> *list, std::list<int> *ordered_small_pair_l
 	}
 }
 
+/**
+ * @brief Sorts pairs in the list so smaller element is first in each pair.
+ *
+ * Iterates through the list stepping by 2 elements and swaps if needed.
+ *
+ * @param list Pointer to list<int> to sort pairs in place.
+ */
 void	first_list_step(std::list<int> *list)
 {
 	std::list<int>::iterator	it1 = list->begin();
@@ -274,6 +357,19 @@ void	first_list_step(std::list<int> *list)
 	}
 }
 
+/**
+ * @brief Orders the elements in a list using a two-step pair sorting method.
+ * 
+ * First, performs the initial ordering on the input list. Then splits the list
+ * into two separate lists: one for smaller elements in pairs, and another for
+ * bigger elements. Finally merges the big pair list into the ordered smaller
+ * pair list in sorted order.
+ * 
+ * @param list Pointer to the input std::list<int> to be ordered.
+ * @param ordered_small_pair_list Pointer to the output std::list<int> that will
+ *                                hold the ordered smaller pairs after sorting.
+ * @return int Returns 0 on success.
+ */
 int	order_with_list(std::list<int> *list, std::list<int> *ordered_small_pair_list)
 {
 	first_list_step(list);
@@ -303,6 +399,19 @@ int	order_with_list(std::list<int> *list, std::list<int> *ordered_small_pair_lis
 
 
 
+/**
+ * @brief Main function to parse, order, and compare std::list and std::vector
+ *        sorting performance using PmergeMe algorithm.
+ * 
+ * Parses the command-line arguments into a std::list and orders it using the
+ * pair-based sorting approach. Measures and prints the time taken for sorting
+ * with std::list and std::vector containers. Also prints the list before and
+ * after sorting.
+ * 
+ * @param argv Null-terminated array of C-string arguments representing input
+ *             integers to be parsed and sorted.
+ * @return int Returns 0 on success, 1 on error (e.g., invalid input).
+ */
 int	pmerge_me(char **argv)
 {
 	std::list<int>		list;
