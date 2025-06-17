@@ -15,6 +15,13 @@
 #include "B.hpp"
 #include "C.hpp"
 
+/**
+ * @brief Identifies the derived class type of a Base reference.
+ *
+ * Uses dynamic_cast to check if the reference refers to an A, B, or C object.
+ *
+ * @param p Reference to a Base object.
+ */
 void Base::identify(Base& p)
 {
 	try
@@ -48,6 +55,14 @@ void Base::identify(Base& p)
 	{}
 	std::cout << "Not an A, B, or C derived class4" << std::endl;
 }
+
+/**
+ * @brief Identifies the derived class type of a Base pointer.
+ *
+ * Uses dynamic_cast to check if the pointer refers to an A, B, or C object.
+ *
+ * @param p Pointer to a Base object.
+ */
 void Base::identify(Base* p)
 {
 	A*	a = dynamic_cast<A*>(p);
@@ -71,6 +86,13 @@ void Base::identify(Base* p)
 	std::cout << "Not an A, B, or C derived class" << std::endl;
 }
 
+/**
+ * @brief Randomly generates and returns a new derived class object.
+ *
+ * Randomly returns an instance of class A, B, or C as a Base pointer.
+ *
+ * @return Pointer to a randomly created derived class object.
+ */
 Base* Base::generate( void )
 {
 	Base	*base;
@@ -86,11 +108,21 @@ Base* Base::generate( void )
 	return (base);
 }
 
+/**
+ * @brief Default constructor for class Base.
+ *
+ * Prints a message when an instance of Base is created.
+ */
 Base::Base( void )
 {
 	std::cout << "Default Base Constructor called" << std::endl;
 }
 
+/**
+ * @brief Default destructor for class Base.
+ *
+ * Prints a message when an instance of Base is destroyed.
+ */
 Base::~Base()
 {
 	std::cout << "Default Base Destructor called" << std::endl;
