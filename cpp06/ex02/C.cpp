@@ -12,11 +12,21 @@
 
 #include "C.hpp"
 
+/**
+ * @brief Default constructor for class C.
+ *
+ * Prints a message when an instance of C is created.
+ */
 C::C( void )
 {
 	std::cout << "Default C Constructor called" << std::endl;
 }
 
+/**
+ * @brief Default destructor for class C.
+ *
+ * Prints a message when an instance of C is destroyed.
+ */
 C::~C()
 {
 	std::cout << "Default C Destructor called" << std::endl;
