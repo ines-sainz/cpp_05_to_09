@@ -12,6 +12,15 @@
 
 #include "Serializer.hpp"
 
+/**
+ * @brief Entry point of the program.
+ *
+ * Demonstrates serialization and deserialization of a Data pointer using
+ * uintptr_t. Prints the results before and after conversion to verify
+ * integrity.
+ *
+ * @return 0 on success.
+ */
 int main()
 {
 	Data	*data = new Data;
