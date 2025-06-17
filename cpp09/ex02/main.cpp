@@ -12,6 +12,16 @@
 
 #include "PmergeMe.hpp"
 
+/**
+ * @brief Program entry point.
+ * 
+ * Checks for correct number of command-line arguments and calls the main
+ * sorting function pmerge_me. Prints "Error" if no arguments are provided.
+ * 
+ * @param argc Argument count.
+ * @param argv Argument vector.
+ * @return int Returns 0 on success, 1 on error.
+ */
 int	main(int argc, char **argv)
 {
 	if (argc < 2)
