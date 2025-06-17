@@ -12,6 +12,16 @@
 
 #include "BitcoinExchange.hpp"
 
+/**
+ * @brief Validates and parses a date string key in "YYYY-MM-DD" format.
+ * 
+ * Checks if the input string follows the date format, validates year,
+ * month, day values including leap years. Returns an integer encoding
+ * of the date or -1 if invalid.
+ * 
+ * @param key Date string to validate.
+ * @return int Encoded integer key for valid date or -1 on error.
+ */
 int	check_set_key(std::string key)
 {
 	int	int_key = 0;
@@ -52,6 +62,18 @@ int	check_set_key(std::string key)
 	return (int_key);
 }
 
+/**
+ * @brief Reads and validates input file lines against the CSV data map.
+ * 
+ * For each line in the input file, extracts a date key and a value,
+ * validates them, finds corresponding CSV value or nearest previous key,
+ * computes and prints the product of CSV value and input value.
+ * Prints errors for invalid inputs.
+ * 
+ * @param fileTxt Pointer to input file stream to read.
+ * @param csv_map Map containing date keys and their corresponding values.
+ * @return int Always returns 0.
+ */
 int	check_input_file(std::ifstream *fileTxt, std::map<int, double>& csv_map)
 {
 	std::string	key;
@@ -115,6 +137,16 @@ int	check_input_file(std::ifstream *fileTxt, std::map<int, double>& csv_map)
 	return (0);
 }
 
+/**
+ * @brief Reads a CSV file and populates a map with integer keys and double values.
+ * 
+ * Parses lines of the CSV file, extracting integer date keys and corresponding
+ * double values. Stores them in the provided map.
+ * 
+ * @param csv_map Map to fill with keys and values from the CSV.
+ * @param fileCsv Pointer to the CSV file stream.
+ * @return int Returns 0 on success, 1 if CSV lines are malformed.
+ */
 int	set_csv_file(std::map<int, double>& csv_map, std::ifstream *fileCsv)
 {
 	std::string	key;
@@ -150,6 +182,15 @@ int	set_csv_file(std::map<int, double>& csv_map, std::ifstream *fileCsv)
 	return (0);
 }
 
+/**
+ * @brief Main controller function that processes Bitcoin exchange data.
+ * 
+ * Opens input and CSV data files, reads CSV data into a map, then checks
+ * the input file lines against the CSV data, printing results or errors.
+ * 
+ * @param argv Command line arguments; argv[1] should be the input file path.
+ * @return int Returns 0 on success, 1 on file opening or parsing failure.
+ */
 int	BitcoinExchange(char **argv)
 {
 	std::ifstream	fileTxt;
