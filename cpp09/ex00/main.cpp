@@ -12,6 +12,17 @@
 
 #include "BitcoinExchange.hpp"
 
+/**
+ * @brief Main entry point of the program.
+ * 
+ * Checks if the program receives exactly one argument (input file path).
+ * If not, prints an error message. Calls BitcoinExchange with arguments
+ * and returns its status. Returns 0 on success, 1 on error.
+ * 
+ * @param argc Argument count.
+ * @param argv Argument vector.
+ * @return int Exit status code.
+ */
 int main(int argc, char **argv)
 {
 	if (argc != 2)
