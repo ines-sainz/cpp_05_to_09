@@ -13,6 +13,16 @@
 #include "MutantStack.hpp"
 #include <list>
 
+/**
+ * @brief Demonstrates usage of MutantStack and std::list with integers.
+ * 
+ * Performs push, pop, and iteration operations on a MutantStack and a
+ * std::list, showing their top/front elements and sizes, then iterates
+ * over and prints all elements. Also copies MutantStack to std::stack
+ * and std::list to another std::list.
+ * 
+ * @return int Always returns 0 on successful execution.
+ */
 int main()
 {
 	MutantStack<int> mstack;
