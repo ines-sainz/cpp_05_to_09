@@ -12,6 +12,16 @@
 
 #include "easyfind.hpp"
 
+/**
+ * @brief Demonstrates usage of the easyfind template function with std::vector 
+ *        and std::list containers.
+ * 
+ * The program adds integers to a vector and a list, searches for specific values,
+ * and prints whether the values are found. It also prints all elements of both 
+ * containers.
+ * 
+ * @return int Always returns 0.
+ */
 int main()
 {
 	std::vector<int> vector;
