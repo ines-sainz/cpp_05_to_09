@@ -12,6 +12,15 @@
 
 #include "Span.hpp"
 
+/**
+ * @brief Demonstrates usage of the Span class.
+ * 
+ * Creates a Span of size 5, adds numbers, and prints the shortest and 
+ * longest spans. Then creates a large Span of size 10001, fills it with 
+ * values from 1 to 10001, and prints its shortest and longest spans.
+ * 
+ * @return int Always returns 0.
+ */
 int main()
 {
 	Span sp = Span(5);
